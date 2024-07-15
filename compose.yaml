@@ -1,0 +1,8 @@
+services:
+  banquemisr-postgresql:
+    image: postgres:14.12
+    environment:
+      - POSTGRES_USER=banquemisr
+      - POSTGRES_PASSWORD=banquemisr
+    ports:
+      - 5432:5432

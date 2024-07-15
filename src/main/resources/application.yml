@@ -1,0 +1,46 @@
+spring:
+   application:
+            name: BankMaser
+
+   datasource:
+     type: com.zaxxer.hikari.HikariDataSource
+     url: jdbc:postgresql://localhost:5432/banquemisr
+     username: banquemisr
+     password: banquemisr
+     createDatabaseIfNotExist: true;
+
+   jpa:
+     show-sql: false
+     properties:
+       hibernate:
+         format_sql: true
+         dll-auto: update
+
+flyway:
+  enabled: true
+  environment: dev
+  locations: classpath:db/migration,classpath:db/dev
+
+
+bank:
+  security:
+    authentication:
+      jwt:
+        secret: 4a2244f75b89a42246a11e38c32417ea7a08e732325
+        token-validity-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 2592000
+  mail:
+    from: test_task@bank.com
+
+    swagger:
+      default-include-pattern: /.*
+      title: Task API
+      description: Task API documentation
+      version: 0.0.1
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
